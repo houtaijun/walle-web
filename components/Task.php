@@ -34,6 +34,7 @@ class Task extends Ansible {
 
         // 简化用户切换目录，直接切换到当前部署空间：{deploy_from}/{env}/{project}-YYmmdd-HHiiss
         $cmd[] = "cd {$workspace}";
+        $cmd[] = "composer update";
         foreach ($tasks as $task) {
             $cmd[] = preg_replace($pattern, $replace, $task);
         }
